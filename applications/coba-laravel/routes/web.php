@@ -5,6 +5,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Category;
+use App\Models\User;
 
 
 /*
@@ -47,10 +48,20 @@ Route::get('/categories', function() {
 });
 
 
+//Route untuk Halaman Categories
 Route::get('/categories/{category:slug}', function(Category $category) {
     return view('category', [
         'title' => $category->name,
         'posts' => $category->posts,
         'category' => $category->name
+    ]);
+});
+
+
+//Route untuk Halaman Authors
+Route::get('/authors/{author:username}', function(User $author) { //Diberi alias menjadi $author yang sebenarnya User
+    return view('posts', [
+        'title' => 'User Posts',
+        'posts' => $author->posts,
     ]);
 });
