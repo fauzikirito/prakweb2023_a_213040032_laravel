@@ -40,6 +40,11 @@ class DatabaseSeeder extends Seeder
             'slug' => 'ui-ux'
         ]);
 
+        Category::create([
+            'name' => 'Cloud Computing',
+            'slug' => 'cloud-computing'
+        ]);
+
         Post::factory(20)->create();
 
         // Post::create([
